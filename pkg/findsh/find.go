@@ -2,9 +2,9 @@
 
 package findsh
 
-import "os/exec"
+import "github.com/cli/safeexec"
 
 // Find locates the `sh` interpreter on the system.
 func Find() (string, error) {
-	return exec.LookPath("sh")
+	return safeexec.LookPath("sh")
 }

@@ -25,6 +25,7 @@ import (
 	ghzip "github.com/cli/cli/v2/internal/zip"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
+	"github.com/cli/safeexec"
 	"github.com/spf13/cobra"
 )
 
@@ -203,7 +204,7 @@ func copilotBinaryPath() string {
 //
 // If not installed, it returns an empty string.
 func findCopilotBinary() string {
-	if path, err := exec.LookPath(copilotBinaryName); err == nil {
+	if path, err := safeexec.LookPath(copilotBinaryName); err == nil {
 		return path
 	}
 
